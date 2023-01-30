@@ -28,7 +28,7 @@ optimiser = ADAM(0.0001)
 # Train our model
 epochs = 1000
 parameters = Flux.params(model)
-_train_data = [(Flux.flatten(train_X),Flux,flatten(train_Y))]
+_train_data = [(Flux.flatten(train_X),Flux.flatten(train_Y))]
 @showprogress for epoch in 1:epochs
 	Flux.train!(loss, parameters, _train_data, optimiser)
 end
