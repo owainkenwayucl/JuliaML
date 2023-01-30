@@ -42,8 +42,8 @@ test_data_ = [(Flux.flatten(test_X), test_Y)]
 # Work out accuracy
 a_sum_ = 0
 for test in 1:length(test_Y)
-	guess_ = findmax(model(test_data_[1][1][:, i]))[2]
-	correct = test_Y[i]
+	guess_ = findmax(model(test_data_[1][1][:, test]))[2]
+	correct = test_Y[test] + 1 # off by one errors :(
 	println("Guess: ", categories[guess], " Correct: ", categories[correct])
 	if guess_ == correct
 		global a_sum_ = a_sum_ + 1
