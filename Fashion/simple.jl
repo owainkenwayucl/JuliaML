@@ -49,7 +49,7 @@ for test in 1:length(test_Y)
 		global a_sum_ = a_sum_ + 1
 	end 
 end
-println("Accuracy: ", a_sum_ / length(test_Y)
+println("Accuracy: ", a_sum_ / length(test_Y))
 
 # Run inference on the first test image which should be "Ankle Boot"
 guess = findmax(model(test_data_[1][1][:, 1]))[2]
