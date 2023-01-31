@@ -16,7 +16,7 @@ module TermShow
 		end
 
 		for a in 1:num_colours
-       			pixels[a] = "\033[48;5:"*string(colours_int[a])*"m  \e0"
+       			pixels[a] = "\033[48;5:"*string(colours_int[a])*"m  \033[m"
 		end
 
 		dimensions = size(image)
