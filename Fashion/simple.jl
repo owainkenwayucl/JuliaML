@@ -1,6 +1,7 @@
 # Dependencies
 
 using Flux, MLDatasets, ProgressMeter
+include("TermShow.jl")
 
 # Pull in training data
 train_data = FashionMNIST(split=:train)
@@ -44,7 +45,7 @@ a_sum_ = 0
 for test in 1:length(test_Y)
 	guess_ = findmax(model(test_data_[1][1][:, test]))[2]
 	correct = test_Y[test] + 1 # off by one errors :(
-	println("Guess: ", categories[guess_], " Correct: ", categories[correct])
+
 	if guess_ == correct
 		global a_sum_ = a_sum_ + 1
 	end 
@@ -52,6 +53,8 @@ end
 println("Accuracy: ", a_sum_ / length(test_Y))
 
 # Run inference on the first test image which should be "Ankle Boot"
+TermShow.render_greyscale_image(test_X[:,:,1])
+
 guess = findmax(model(test_data_[1][1][:, 1]))[2]
 println(categories[guess]) 
 
