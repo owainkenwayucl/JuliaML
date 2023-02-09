@@ -21,8 +21,8 @@ module TermShow
 
 		dimensions = size(image)
 
-		width = dimensions[2]
-		height = dimensions[1]
+		width = dimensions[1]
+		height = dimensions[2]
 
 		for y in 1:height
 			for x in 1:width
