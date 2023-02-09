@@ -66,7 +66,7 @@ println("Accuracy: ", a_sum_ / length(test_Y))
 temp_image_ = test_X[:,:,1,1]
 temp_image_r = reshape(temp_image_, size(temp_image_)...,1,1)
 
-TermShow.render_greyscale_image(temp_image_r)
+TermShow.hires_render_greyscale_image(temp_image_r)
 
 guess = findmax(model(temp_image_r))[2]
 println("This should be an 'Ankle boot': ",categories[guess]) 
