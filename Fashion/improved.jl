@@ -1,6 +1,7 @@
 # Dependencies
 
-using Flux, MLDatasets, ProgressMeter, MLUtils
+using Flux, MLDatasets, ProgressMeter, MLUtils, Dates
+using BSON: @save
 
 include("TermShow.jl")
 
@@ -68,3 +69,4 @@ TermShow.hires_render_greyscale_image(temp_image_r)
 guess = findmax(model(temp_image_r))[2]
 println("This should be an 'Ankle boot': ",categories[guess]) 
 
+@save "improved-$(Dates.now())-$(epochs)-$(a_sum_/length(test_Y)).bson" model
