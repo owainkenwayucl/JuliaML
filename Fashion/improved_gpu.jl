@@ -1,6 +1,7 @@
 # Dependencies
 
-using Flux, MLDatasets, ProgressMeter, MLUtils, CUDA, BSON
+using Flux, MLDatasets, ProgressMeter, MLUtils, CUDA
+using BSON: @save
 
 include("TermShow.jl")
 
