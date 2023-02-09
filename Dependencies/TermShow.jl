@@ -6,6 +6,9 @@ module TermShow
 
 	export render_greyscale_image, hires_render_greyscale_image
 
+	# This function prints out a greyscale version of an image by generating
+	# "pixels" which are two spaces "  " with the background colour set from
+	# the 25 greys in the 256 colour terminal colour set.
 	function render_greyscale_image(image)
 		num_colours = 25 
 		base_colour = 231
@@ -33,6 +36,9 @@ module TermShow
 		end
 	end
 
+	# This function prints out a greyscale version of an image by generating
+	# pairs of pixels out of the "▄" character, setting the forground and 
+	# background colour set from the 25 greys in the 256 colour terminal set.
 	function hires_render_greyscale_image(image)
 		num_colours = 25 
 		base_colour = 231
@@ -48,6 +54,7 @@ module TermShow
 		height = dimensions[2]
 
 
+		# Simple case, even number of pixes high.
 		for y in 1:height ÷ 2
 			line = ""
 			slice = image[1:width,((2*y)-1):(2*y)]
@@ -59,11 +66,12 @@ module TermShow
 			end
 			println(line)
 		end
+
+		# If we have an odd number, generate the last row.
 		if height % 2 == 1
 			line = ""
 			slice = image[1:width,height:height]
 			for x in 1:width
-				
 				index1 = Int(floor(slice[x,1] * (num_colours-1))) + 1
 				pixel = "\033[38;5:"*string(colours_int[index1])*"m▀\033[m"
 				line = line*pixel
