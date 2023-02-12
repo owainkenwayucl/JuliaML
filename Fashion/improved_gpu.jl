@@ -10,7 +10,7 @@ train_data = FashionMNIST(split=:train)
 train_X, train_Y = train_data[:]
 categories = train_data.metadata["class_names"]
 
-train_X = MLUtils.unsqueeze(train_X,3) |> gpu
+train_X = MLUtils.unsqueeze(train_X,3)
 train_Y = Flux.onehotbatch(train_Y, 0:(length(categories)-1))
 
 # Build model
