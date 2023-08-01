@@ -17,7 +17,7 @@ ln -s julia-${julia_version} julia
 export PATH=${local_home}/JuliaML/julia/bin:${PATH}
 
 julia -e "using Pkg; Pkg.add(\"IJulia\")"
-cat ../environment.sh << EOF
+cat  << EOF > ../environment.sh
 #!/usr/bin/env bash
 export PATH=${local_home}/JuliaML/julia/bin:${PATH}
 EOF
