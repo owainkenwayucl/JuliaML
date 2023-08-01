@@ -23,3 +23,6 @@ export PATH=${local_home}/JuliaML/julia/bin:${PATH}
 EOF
 
 chmod +x ../environment.sh
+
+cd Fashion
+source ./setup.sh
