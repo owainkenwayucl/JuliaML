@@ -29,7 +29,7 @@ model = Chain(
 loss(x, y) = Flux.Losses.logitcrossentropy(model(x), y)
 
 # Define optimiser
-optimiser = ADAM()
+optimiser = Adam()
 
 # Train our model
 epochs = 40
